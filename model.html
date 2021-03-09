@@ -19,7 +19,12 @@ model-viewer {
   --poster-color: #ffffff00;
 }
 
+model-viewer#reveal {
+    --poster-color: transparent;
+  }
+ 
   </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <!-- Import the component -->
   <body>
@@ -27,7 +32,7 @@ model-viewer {
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
     <div class="demo" >
-<model-viewer id="mv-shark" shadow-intensity="0" src="https://github.com/candwig/vr/blob/master/undefined.gltf?raw=true" camera-controls="" ar-status="not-presenting">
+<model-viewer shadow-intensity="0" id="reveal" loading="eager" camera-controls auto-rotate poster="https://raw.githubusercontent.com/candwig/vr/master/pattern-AAD%20AR2.png" src="https://raw.githubusercontent.com/candwig/vr/master/undefined.gltf" camera-controls="" ar-status="not-presenting">
 
 
 </model-viewer>

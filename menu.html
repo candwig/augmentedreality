@@ -173,35 +173,36 @@ img {
   <div class="caption-container">
     <p id="caption"></p>
   </div>
+<div><p> </p> </div>
 
   <div class="row">
     <div class="column">
-          <model-viewer class="thumb1" shadow-intensity="0" loading="eager" camera-controls auto-rotate  src="https://raw.githubusercontent.com/candwig/vr/master/undefined.gltf" style="width:100%" onclick="currentSlide(1)" alt="Model gigi">
+          <model-viewer class="thumb1" shadow-intensity="0" loading="eager" camera-controls auto-rotate  src="https://raw.githubusercontent.com/candwig/vr/master/undefined.gltf" style="width:100%" onclick="currentSlide(1)" alt="Model gigi" >
 </model-viewer>
     </div>
     
     <div class="column">
-      <model-viewer class="thumb1" shadow-intensity="0" loading="eager" camera-controls auto-rotate  src="https://raw.githubusercontent.com/candwig/vr/master/undefined.gltf" style="width:100%" onclick="currentSlide(1)" alt="Model gigi">
+      <model-viewer class="thumb1" shadow-intensity="0" loading="eager" camera-controls auto-rotate  src="" style="width:100%" onclick="currentSlide(2)" alt="Model gigi">
 </model-viewer>
     </div>
     
     <div class="column">
-      <model-viewer class="thumb1" shadow-intensity="0" loading="eager" camera-controls auto-rotate  src="https://raw.githubusercontent.com/candwig/vr/master/undefined.gltf" style="width:100%" onclick="currentSlide(1)" alt="Model gigi">
+      <model-viewer class="thumb1" shadow-intensity="0" loading="eager" camera-controls auto-rotate  src="" style="width:100%" onclick="currentSlide(3)" alt="Model gigi">
 </model-viewer>
     </div>
     
     <div class="column">
-      <model-viewer class="thumb1" shadow-intensity="0" loading="eager" camera-controls auto-rotate  src="https://raw.githubusercontent.com/candwig/vr/master/undefined.gltf" style="width:100%" onclick="currentSlide(1)" alt="Model gigi">
+      <model-viewer class="thumb1" shadow-intensity="0" loading="eager" camera-controls auto-rotate  src="" style="width:100%" onclick="currentSlide(4)" alt="Model gigi">
 </model-viewer>
     </div>
     
     <div class="column">
-      <model-viewer class="thumb1" shadow-intensity="0" loading="eager" camera-controls auto-rotate  src="https://raw.githubusercontent.com/candwig/vr/master/undefined.gltf" style="width:100%" onclick="currentSlide(1)" alt="Model gigi">
+      <model-viewer class="thumb1" shadow-intensity="0" loading="eager" camera-controls auto-rotate  src="" style="width:100%" onclick="currentSlide(5)" alt="Model gigi">
 </model-viewer>
 
     </div>    
     <div class="column">
-      <img class="demo cursor" src="img_snow.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+      <img class="demo cursor" src="img_snow.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountain">
     </div>
   </div>
 </div>
@@ -221,7 +222,7 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
+  var dots = document.getElementsByClassName("thumb1");
   var captionText = document.getElementById("caption");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}

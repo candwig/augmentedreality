@@ -293,18 +293,39 @@ img {
   --poster-color: #ffffff00;
     opacity: 0.6;
       cursor: pointer;
+      object-fit: cover;
 }
 
 .active,
 .thumb1:hover {
   opacity: 1;
 }
-}
 
 .thumb1#reveal {
     --poster-color: transparent;
   }
+  
+/* Img Fit */
 
+.cover {
+  object-fit: cover;
+  width: 100%;
+  height: 70px;
+  background-color: #70BCD1;
+  --poster-color: #ffffff00;
+    opacity: 0.6;
+      cursor: pointer;
+}
+
+.active,
+.cover:hover {
+  opacity: 1;
+}
+
+.cover#reveal {
+    --poster-color: transparent;
+  }
+  
 </style>
 <body>
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>

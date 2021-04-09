@@ -114,6 +114,35 @@ model-viewer {
   transition: width 0.3s;
 }
 
+.progress-bar1 {
+  display: block;
+  width: 33%;
+  height: 10%;
+  max-height: 2%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  border-radius: 25px;
+  box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.5), 0px 0px 5px 1px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.progress-bar1.hide {
+  visibility: hidden;
+  transition: visibility 0.3s;
+}
+
+.update-bar1 {
+  background-color: rgba(20, 20, 20, 0.9);
+  width: 0%;
+  height: 100%;
+  border-radius: 25px;
+  float: left;
+  transition: width 0.3s;
+}
+
+
 #ar-button {
   background-image: url(ar_icon.png);
   background-repeat: no-repeat;
@@ -336,10 +365,29 @@ img {
     <p id="caption"></p>
   <div class="mySlides">
     <div class="numbertext">1 / 6</div>
-    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/pfm.glb" camera-controls camera-orbit="95.97deg 91.81deg 4.714m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.714m" exposure="3" shadow-intensity="0" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/pfm.png" >
+    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/pfm.glb" camera-controls camera-orbit="95.97deg 91.81deg 4.714m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.714m" exposure="4" shadow-intensity="0" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/pfm.png" >
     <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
     </div>
+    <script>
+    // Handles loading the events for <model-viewer>'s slotted progress bar
+const onProgress = (event) => {
+  const progressBar = event.target.querySelector('.progress-bar');
+  const updatingBar = event.target.querySelector('.update-bar');
+  updatingBar.style.width = `${event.detail.totalProgress * 100}%`;
+  if (event.detail.totalProgress === 1) {
+    progressBar.classList.add('hide');
+  } else {
+    progressBar.classList.remove('hide');
+    if (event.detail.totalProgress === 0) {
+      event.target.querySelector('.center-pre-prompt').classList.add('hide');
+    }
+  }
+};
+document.querySelector('model-viewer').addEventListener('progress', onProgress);
+</script>
+    
+    
 </model-viewer>
 
   </div>
@@ -348,7 +396,7 @@ img {
     <div class="numbertext">2 / 6</div>
     <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/zirconia 2 ed.glb" camera-controls exposure="5" camera-orbit="88.18deg 92.35deg 5.55m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 5.55m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/zirconia 2.png">
     <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
+        <div class="1update-bar"></div>
     </div>
 </model-viewer>
   </div>
@@ -365,16 +413,28 @@ img {
     
   <div class="mySlides">
     <div class="numbertext">4 / 6</div>
-     <model-viewer class="sorotan" shadow-intensity="0" src="https://raw.githubusercontent.com/candwig/vr/master/model/sherly%20ganda%20test.glb" camera-controls="" camera-controls camera-orbit="86.2deg 78.79deg 80.86m" poster="https://raw.githubusercontent.com/candwig/vr/master/model/drgsherlygandraposter.png" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 80.86m">
-<button class="Hotspot" slot="hotspot-1" data-position="7.999141001779236m -7.910712694534205m 2.7830571147357652m" data-normal="0.9957516931234857m -0.03738110588682331m -0.08414997661550479m" data-visibility-attribute="visible" style="width:100%"> 
-<div class="HotspotAnnotation">Preparasi Gigi 24 untuk dibuatkan zirconia</div>
-    </button>
-    <div class="progress-bar2 hide" slot="progress-bar2">
-        <div class="update-bar2"></div>
+     <model-viewer class="sorotan" shadow-intensity="0" src="https://raw.githubusercontent.com/candwig/vr/master/produk/maryland pfm.glb" camera-controls="" camera-controls  poster="" min-camera-orbit="auto auto auto" exposure="1" >
+    <div class="progress-bar1 hide" slot="progress-bar1">
+        <div class="update-bar1"></div>
     </div>
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
+    
+   <script>
+    // Handles loading the events for <model-viewer>'s slotted progress bar
+const onProgress = (event) => {
+  const progressBar = event.target.querySelector('.progress-bar1');
+  const updatingBar = event.target.querySelector('.update-bar1');
+  updatingBar.style.width = `${event.detail.totalProgress * 100}%`;
+  if (event.detail.totalProgress === 1) {
+    progressBar.classList.add('hide');
+  } else {
+    progressBar.classList.remove('hide');
+    if (event.detail.totalProgress === 0) {
+      event.target.querySelector('.center-pre-prompt').classList.add('hide');
+    }
+  }
+};
+document.querySelector('model-viewer').addEventListener('progress', onProgress);
+</script>
 </model-viewer>
   </div>
 
@@ -464,22 +524,6 @@ function showSlides(n) {
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
 
-
-// Handles loading the events for <model-viewer>'s slotted progress bar
-const onProgress = (event) => {
-  const progressBar = event.target.querySelector('.progress-bar');
-  const updatingBar = event.target.querySelector('.update-bar');
-  updatingBar.style.width = `${event.detail.totalProgress * 100}%`;
-  if (event.detail.totalProgress === 1) {
-    progressBar.classList.add('hide');
-  } else {
-    progressBar.classList.remove('hide');
-    if (event.detail.totalProgress === 0) {
-      event.target.querySelector('.center-pre-prompt').classList.add('hide');
-    }
-  }
-};
-document.querySelector('model-viewer').addEventListener('progress', onProgress);
 
 
 </script>

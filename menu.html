@@ -114,35 +114,6 @@ model-viewer {
   transition: width 0.3s;
 }
 
-.progress-bar1 {
-  display: block;
-  width: 33%;
-  height: 10%;
-  max-height: 2%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  border-radius: 25px;
-  box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.5), 0px 0px 5px 1px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-}
-
-.progress-bar1.hide {
-  visibility: hidden;
-  transition: visibility 0.3s;
-}
-
-.update-bar1 {
-  background-color: rgba(20, 20, 20, 0.9);
-  width: 0%;
-  height: 100%;
-  border-radius: 25px;
-  float: left;
-  transition: width 0.3s;
-}
-
-
 #ar-button {
   background-image: url(ar_icon.png);
   background-repeat: no-repeat;
@@ -365,82 +336,32 @@ img {
     <p id="caption"></p>
   <div class="mySlides">
     <div class="numbertext">1 / 6</div>
-    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/pfn5.glb" camera-controls camera-orbit="95.97deg 91.81deg 4.714m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.714m" shadow-intensity="0" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/pfm.png" exposure="1" >
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
-    <script>
-    // Handles loading the events for <model-viewer>'s slotted progress bar
-const onProgress = (event) => {
-  const progressBar = event.target.querySelector('.progress-bar');
-  const updatingBar = event.target.querySelector('.update-bar');
-  updatingBar.style.width = `${event.detail.totalProgress * 100}%`;
-  if (event.detail.totalProgress === 1) {
-    progressBar.classList.add('hide');
-  } else {
-    progressBar.classList.remove('hide');
-    if (event.detail.totalProgress === 0) {
-      event.target.querySelector('.center-pre-prompt').classList.add('hide');
-    }
-  }
-};
-document.querySelector('model-viewer').addEventListener('progress', onProgress);
-</script>
-    
-    
+    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/pfn5.glb" camera-controls camera-orbit="101.2deg 84.76deg 4.714m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.714m" shadow-intensity="0" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/pfn5.png">
 </model-viewer>
 
   </div>
 
   <div class="mySlides">
     <div class="numbertext">2 / 6</div>
-    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/zirconia 2 ed.glb" camera-controls exposure="5" camera-orbit="88.18deg 92.35deg 5.55m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 5.55m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/zirconia 2.png">
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="1update-bar"></div>
-    </div>
+    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/zirconia 3.glb" camera-controls camera-orbit="87.83deg 92.35deg 5.55m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 5.55m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/zirconia 3.png">
 </model-viewer>
   </div>
 
   <div class="mySlides">
     <div class="numbertext">3 / 6</div>
-<model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax ed.glb" camera-controls exposure="4" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 1.945m" min-field-of-view="auto" max-field-of-view="auto" camera-orbit="89.56deg 80.51deg 1.945m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/emax.png">
-
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
+<model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax 2.glb" exposure="2" camera-controls min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 1.945m" min-field-of-view="auto" max-field-of-view="auto" camera-orbit="89.56deg 80.51deg 1.945m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/emax.png">
 </model-viewer>
   </div>
     
   <div class="mySlides">
     <div class="numbertext">4 / 6</div>
-     <model-viewer class="sorotan" shadow-intensity="0" src="https://raw.githubusercontent.com/candwig/vr/master/produk/maryland pfm textured2.glb" camera-controls="" camera-controls  poster="" camera-orbit="307.2deg 31.17deg 4.195m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.195m" >
-    <div class="progress-bar1 hide" slot="progress-bar1">
-        <div class="update-bar1"></div>
-    </div>
-    
-   <script>
-    // Handles loading the events for <model-viewer>'s slotted progress bar
-const onProgress = (event) => {
-  const progressBar = event.target.querySelector('.progress-bar1');
-  const updatingBar = event.target.querySelector('.update-bar1');
-  updatingBar.style.width = `${event.detail.totalProgress * 100}%`;
-  if (event.detail.totalProgress === 1) {
-    progressBar.classList.add('hide');
-  } else {
-    progressBar.classList.remove('hide');
-    if (event.detail.totalProgress === 0) {
-      event.target.querySelector('.center-pre-prompt').classList.add('hide');
-    }
-  }
-};
-document.querySelector('model-viewer').addEventListener('progress', onProgress);
-</script>
+     <model-viewer class="sorotan" shadow-intensity="0" src="https://raw.githubusercontent.com/candwig/vr/master/produk/maryland pfm3glb.glb" camera-controls="" camera-orbit="-71.02deg 38.67deg 4.567m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.567m"  poster="https://raw.githubusercontent.com/candwig/vr/master/produk/maryland pfm3glb.png" >
 </model-viewer>
   </div>
 
   <div class="mySlides">
     <div class="numbertext">5 / 6</div>
-    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax model smooth.glb" camera-controls exposure="1" camera-orbit="1.084deg 85.39deg 0.08529m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/emax crown with model LowerJawScan LowerJawScan2.png">
+    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax veneer with model.glb" camera-controls camera-orbit="92.71deg 88.1deg 9.792m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 9.792m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/emax veneer with model.png">
     <button class="Hotspot" slot="hotspot-2" data-position="-0.004826157208390596m 0.013651403882330486m 0.002053417903457408m" data-normal="-0.23690067474586413m -0.27480978951533575m 0.9318570973553247m" data-visibility-attribute="visible" style="width:100%">
         <div class="HotspotAnnotation">Indikasi :
             -Crown
@@ -448,18 +369,12 @@ document.querySelector('model-viewer').addEventListener('progress', onProgress);
             -Anterior
             -Inlay/Onlay</div>
     </button>
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
 </model-viewer>
   </div>
     
   <div class="mySlides">
     <div class="numbertext">6 / 6</div>
-     <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/INALY ZIRCONIA3.glb " camera-controls camera-orbit="-4.14deg 83.22deg 0.05525m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/zircon bnridge LowerJawScan smoothen texture.png">
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
+     <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/INALY ZIRCONIA3.glb " camera-controls camera-orbit="114.8deg 44.1deg 1.834m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 1.834m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/INALY ZIRCONIA3.png">
 </model-viewer>
 
   </div>
@@ -469,27 +384,27 @@ document.querySelector('model-viewer').addEventListener('progress', onProgress);
 	  
   <div class="row">
     <div class="column">
-          <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/pfm.png" style="width:100%" onclick="currentSlide(1)" alt="PFM Bridges">
+          <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/pfn5.png" style="width:100%" onclick="currentSlide(1)" alt="PFM Bridges">
     </div>
     
     <div class="column">
-      <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/zirconia 2.png" style="width:100%" onclick="currentSlide(2)" alt="Zirconia Bridges">
+      <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/zirconia 3.png" style="width:100%" onclick="currentSlide(2)" alt="Zirconia Bridges">
     </div>
     
     <div class="column">
 	  <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax.png" style="width:100%" onclick="currentSlide(3)" alt="E-max Crown">
     </div>
     
-    <div class="column">
-       <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/model/drgsherlygandraposter.png" style="width:100%" onclick="currentSlide(4)" alt="Model Drg Sherly Ganda">
-   </div>
+      <div class="column">
+       <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/maryland pfm3glb.png" style="width:100%" onclick="currentSlide(4)" alt="Maryland PFM">
+    </div>
     
     <div class="column">
-       <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax crown with model LowerJawScan LowerJawScan2.png" style="width:100%" onclick="currentSlide(5)" alt="E-max Crown with model">
-
-    </div>    
+       <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax veneer with model.png" style="width:100%" onclick="currentSlide(5)" alt="E-max Veneer With Model">
+    </div>
+    
     <div class="column">
-      <img class="demo cursor" src="img_snow.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountain">
+      <img class="demo cursor" src="https://raw.githubusercontent.com/candwig/vr/master/produk/INALY ZIRCONIA3.png " style="width:100%" onclick="currentSlide(6)" alt="Inlay Zirconia">
     </div>
   </div>
 </div>

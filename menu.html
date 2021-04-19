@@ -80,10 +80,12 @@ model-viewer {
 
  #annotation{
     background-color: #888888;
+    opacity: 0.7;
     position: absolute;
     transform: translate(5px, 5px);
     border-radius: 5px;
     padding: 5px;
+    text-align: left;
   }
 
 .Hotspot:not([data-visible]) > * {
@@ -344,7 +346,15 @@ img {
     <p id="caption"></p>
   <div class="mySlides">
     <div class="numbertext">1 / 6</div>
-    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/pfn5.glb" camera-controls camera-orbit="101.2deg 84.76deg 4.714m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.714m" shadow-intensity="0" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/pfn5.png">
+    <model-viewer class="sorotan" exposure="1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/pfn5.glb" camera-controls camera-orbit="101.2deg 84.76deg 4.714m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.714m" shadow-intensity="0" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/pfn5.png">
+    <div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Crown</P>
+            <p>- Long Bridge</P>
+            <p>- Inlay/Onlay</P>
+            <p>- Deep Bite</P>
+            <p>Contra Indication</P>
+            <p>- Pasien Alergi Metal</P>
+      </font></div>
 </model-viewer>
 
   </div>
@@ -352,35 +362,65 @@ img {
   <div class="mySlides">
     <div class="numbertext">2 / 6</div>
     <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/zirconia 3.glb" camera-controls camera-orbit="87.83deg 92.35deg 5.55m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 5.55m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/zirconia 3.png">
+        <div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Crown</P>
+            <p>- Long Bridge</P>
+            <p>- Posterior</P>
+            <p>- Inlay/Onlay</P>
+            <p>Contra Indication</P>
+            <p>- Bruxism</P>
+            <p>- DV Rendah</P>
+      </font></div>
 </model-viewer>
   </div>
 
   <div class="mySlides">
     <div class="numbertext">3 / 6</div>
-<model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax 2.glb" exposure="2" camera-controls min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 1.945m" min-field-of-view="auto" max-field-of-view="auto" camera-orbit="89.56deg 80.51deg 1.945m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/emax.png">
+<model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax 2.glb" exposure="3" camera-controls min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 1.945m" min-field-of-view="auto" max-field-of-view="auto" camera-orbit="89.56deg 80.51deg 1.945m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/emax.png">
+<div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Crown Max M2</P>
+            <p>- Bridge Max 3 Unit</P>
+            <p>- Inlay/Onlay</P>
+            <p>- Sementasi Konvensional</P>
+            <p>- Sementasi Light Cure</P>
+            <p>Contra Indication</P>
+            <p>- Bridge Lebih Dari 3 Unit</P>
+            <p>- Deep Bite</P>
+            <p>- Cantilever</P>
+      </font></div>
 </model-viewer>
   </div>
     
   <div class="mySlides">
     <div class="numbertext">4 / 6</div>
-     <model-viewer class="sorotan" shadow-intensity="0" src="https://raw.githubusercontent.com/candwig/vr/master/produk/maryland pfm3glb.glb" camera-controls="" camera-orbit="-71.02deg 38.67deg 4.567m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.567m"  poster="https://raw.githubusercontent.com/candwig/vr/master/produk/maryland pfm3glb.png" >
+     <model-viewer class="sorotan" shadow-intensity="0" exposure="0.8" src="https://raw.githubusercontent.com/candwig/vr/master/produk/maryland pfm3glb.glb" camera-controls="" camera-orbit="-71.02deg 38.67deg 4.567m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.567m"  poster="https://raw.githubusercontent.com/candwig/vr/master/produk/maryland pfm3glb.png" >
+      <div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Kontak Metal</P>
+            <p>- Deep Bite</P>
+            <p>Contra Indication</P>
+            <p>- Pasien Alergi Metal</P>
+      </font></div>
 </model-viewer>
   </div>
 
   <div class="mySlides">
     <div class="numbertext">5 / 6</div>
     <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax veneer with model.glb" camera-controls camera-orbit="92.71deg 88.1deg 9.792m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 9.792m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/emax veneer with model.png">
-  <div id="annotation">This annotation is fixed in screen-space
-            -Crown
-            -Bridge Max 3 unit
-            -Anterior
-            -Inlay/Onlay</div>
+  <div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Prep s/d Batas Enamel</P>
+            <p>- Sementasi Light Cure</P>
+</font></div>
 </model-viewer>
   </div>
     
   <div class="mySlides">
     <div class="numbertext">6 / 6</div>
-     <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/INALY ZIRCONIA3.glb " camera-controls camera-orbit="114.8deg 44.1deg 1.834m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 1.834m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/INALY ZIRCONIA3.png">
+     <model-viewer class="sorotan" exposure="0.8" src="https://raw.githubusercontent.com/candwig/vr/master/produk/INALY ZIRCONIA3.glb " camera-controls camera-orbit="114.8deg 44.1deg 1.834m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 1.834m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/INALY ZIRCONIA3.png">
+       <div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Inlay/Onlay</P>
+            <p>Contra Indication</P>
+            <p>- Bruxism</P>
+      </font></div>
 </model-viewer>
 
   </div>

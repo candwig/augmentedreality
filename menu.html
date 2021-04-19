@@ -78,6 +78,14 @@ model-viewer {
   allign: left;
 }
 
+ #annotation{
+    background-color: #888888;
+    position: absolute;
+    transform: translate(5px, 5px);
+    border-radius: 5px;
+    padding: 5px;
+  }
+
 .Hotspot:not([data-visible]) > * {
   opacity: 0;
   pointer-events: none;
@@ -362,13 +370,11 @@ img {
   <div class="mySlides">
     <div class="numbertext">5 / 6</div>
     <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax veneer with model.glb" camera-controls camera-orbit="92.71deg 88.1deg 9.792m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 9.792m" poster="https://raw.githubusercontent.com/candwig/vr/master/produk/emax veneer with model.png">
-    <button class="Hotspot" slot="hotspot-2" data-position="-0.004826157208390596m 0.013651403882330486m 0.002053417903457408m" data-normal="-0.23690067474586413m -0.27480978951533575m 0.9318570973553247m" data-visibility-attribute="visible" style="width:100%">
-        <div class="HotspotAnnotation">Indikasi :
+  <div id="annotation">This annotation is fixed in screen-space
             -Crown
             -Bridge Max 3 unit
             -Anterior
             -Inlay/Onlay</div>
-    </button>
 </model-viewer>
   </div>
     

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+/* untuk hotspot annotation
+*/
+	
+:not(:defined) > * {
+  display: none;
+}
+
+body {
+  margin: 0;
+}
+
+model-viewer {
+  width: 100%;
+  height: 90%;
+  background-color: #ffffff;
+}
+
+  model-viewer#reveal {
+    --poster-color: transparent;
+  }
+
+.Hotspot {
+  background: #fff;
+  border-radius: 32px;
+  border: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 24px;
+  padding: 8px;
+  position: relative;
+  transition: opacity 0.3s;
+  width: 24px;
+}
+
+.Hotspot:not([data-visible]) {
+  background: transparent;
+  border: 4px solid #fff;
+  box-shadow: none;
+  height: 32px;
+  pointer-events: none;
+  width: 32px;
+}
+
+.Hotspot:focus {
+  border: 4px solid rgb(0, 128, 200);
+  height: 32px;
+  outline: none;
+  width: 32px;
+}
+
+.Hotspot > * {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.HotspotAnnotation{
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  color: rgba(0, 0, 0, 0.8);
+  display: block;
+  font-family: Futura, Helvetica Neue, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  left: calc(100% + 1em);
+  max-width: 128px;
+  overflow-wrap: break-word;
+  padding: 0.5em 1em;
+  position: absolute;
+  top: 50%;
+  width: max-content;
+  allign: left;
+}
+
+ #annotation{
+    background-color: #888888;
+    opacity: 0.7;
+    position: absolute;
+    transform: translate(5px, 5px);
+    border-radius: 5px;
+    padding: 5px;
+    text-align: left;
+  }
+
+.Hotspot:not([data-visible]) > * {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(calc(-50% + 4px));
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+
+.progress-bar {
+  display: block;
+  width: 33%;
+  height: 10%;
+  max-height: 2%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  border-radius: 25px;
+  box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.5), 0px 0px 5px 1px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.progress-bar.hide {
+  visibility: hidden;
+  transition: visibility 0.3s;
+}
+
+.update-bar {
+  background-color: rgba(20, 20, 20, 0.9);
+  width: 0%;
+  height: 100%;
+  border-radius: 25px;
+  float: left;
+  transition: width 0.3s;
+}
+
+#ar-button {
+  background-image: url(ar_icon.png);
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: 12px 50%;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  bottom: 132px;
+  padding: 0px 16px 0px 40px;
+  font-family: Roboto Regular, Helvetica Neue, sans-serif;
+  font-size: 14px;
+  color:#4285f4;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 18px;
+  border: 1px solid #DADCE0;
+}
+
+#ar-button:active {
+  background-color: #E8EAED;
+}
+
+#ar-button:focus {
+  outline: none;
+}
+
+#ar-button:focus-visible {
+  outline: 1px solid #4285f4;
+}
+
+@keyframes circle {
+  from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
+  to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
+}
+
+@keyframes elongate {
+  from { transform: translateX(100px); }
+  to   { transform: translateX(-100px); }
+}
+
+model-viewer > #ar-prompt {
+  position: absolute;
+  left: 50%;
+  bottom: 175px;
+  animation: elongate 2s infinite ease-in-out alternate;
+  display: none;
+}
+
+model-viewer[ar-status="session-started"] > #ar-prompt {
+  display: block;
+}
+
+model-viewer > #ar-prompt > img {
+  animation: circle 4s linear infinite;
+}	
+/* beres disini
+*/
+
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+ display : none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.sorotan {
+  width: 100%;
+  height: 700px;
+  background-image: linear-gradient(#ffffff, #bfbfbf);
+  --poster-color: #ffffff00;
+}
+
+.sorotan#reveal {
+    --poster-color: transparent;
+  }
+
+.thumb1 {
+  width: 100%;
+  height: 70px;
+  background-color: #ffffff;
+  --poster-color: #ffffff00;
+    opacity: 0.6;
+      cursor: pointer;
+      object-fit: cover;
+}
+
+.active,
+.thumb1:hover {
+  opacity: 1;
+}
+
+.thumb1#reveal {
+    --poster-color: transparent;
+  }
+  
+/* Img Fit */
+
+.cover {
+  object-fit: cover;
+  width: 100%;
+  height: 70px;
+  background-color: #ffffff;
+  --poster-color: #ffffff;
+    opacity: 0.6;
+      cursor: pointer;
+}
+
+.active,
+.cover:hover {
+  opacity: 1;
+}
+
+.cover#reveal {
+    --poster-color: transparent;
+  }
+  
+</style>
+<body>
+	
+<script src="https://raw.githubusercontent.com/candwig/candwig.github.io/main/model/script.js"></script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+<h2 style="text-align:center">Asia Afrika Dental Product</h2>
+
+<div class="container">
+  <div class="caption-container">
+    <p id="caption"></p>
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <model-viewer class="sorotan" exposure="1" src="https://raw.githubusercontent.com/candwig/vr/master/lepasan/kombinasi frame akrilik.glb" camera-controls camera-orbit="91.62deg 90.72deg 4.256m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.256m" shadow-intensity="0" poster="https://raw.githubusercontent.com/candwig/vr/master/lepasan/kombinasi frame akrilik.png">
+    <div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Crown</P>
+            <p>- Long Bridge</P>
+            <p>- Inlay/Onlay</P>
+            <p>- Deep Bite</P>
+            <p>Contra Indication</P>
+            <p>- Pasien Alergi Metal</P>
+      </font></div>
+</model-viewer>
+
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <model-viewer class="sorotan" exposure="1.5" src="https://raw.githubusercontent.com/candwig/vr/master/lepasan/frame.glb" camera-controls camera-orbit="96.68deg 50.6deg 8.882m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 8.882m" poster="https://raw.githubusercontent.com/candwig/vr/master/lepasan/frame.png">
+        <div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Crown</P>
+            <p>- Long Bridge</P>
+            <p>- Posterior</P>
+            <p>- Inlay/Onlay</P>
+            <p>Contra Indication</P>
+            <p>- Bruxism</P>
+            <p>- DV Rendah</P>
+      </font></div>
+</model-viewer>
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+<model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/lepasan/frs.glb" exposure="3" camera-controls min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 10.33m" min-field-of-view="auto" max-field-of-view="auto" camera-orbit="66.69deg 59.37deg 10.33m" poster="https://raw.githubusercontent.com/candwig/vr/master/lepasan/frs.png">
+<div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Crown Max M2</P>
+            <p>- Bridge Max 3 Unit</P>
+            <p>- Inlay/Onlay</P>
+            <p>- Sementasi Konvensional</P>
+            <p>- Sementasi Light Cure</P>
+            <p>Contra Indication</P>
+            <p>- Bridge Lebih Dari 3 Unit</P>
+            <p>- Deep Bite</P>
+            <p>- Cantilever</P>
+      </font></div>
+</model-viewer>
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+     <model-viewer class="sorotan" shadow-intensity="0" exposure="0.8" src="https://raw.githubusercontent.com/candwig/vr/master/lepasan/akrilik.glb" camera-controls="" camera-orbit="101.6deg 87.47deg 7.245m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 7.245m"  poster="https://raw.githubusercontent.com/candwig/vr/master/lepasan/akrilik.png" >
+      <div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Kontak Metal</P>
+            <p>- Deep Bite</P>
+            <p>Contra Indication</P>
+            <p>- Pasien Alergi Metal</P>
+      </font></div>
+</model-viewer>
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/lepasan/akrilik kombinasi clear claps.glb" camera-controls camera-orbit="103.9deg 76.63deg 5.037m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 5.037m" poster="https://raw.githubusercontent.com/candwig/vr/master/lepasan/akrilik kombinasi clear claps.png">
+  <div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Prep s/d Batas Enamel</P>
+            <p>- Sementasi Light Cure</P>
+</font></div>
+</model-viewer>
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+     <model-viewer class="sorotan" exposure="0.8" src="https://raw.githubusercontent.com/candwig/vr/master/lepasan/INALY ZIRCONIA3.glb " camera-controls camera-orbit="114.8deg 44.1deg 1.834m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 1.834m" poster="https://raw.githubusercontent.com/candwig/vr/master/lepasan/INALY ZIRCONIA3.png">
+       <div id="annotation"><font size="-1"><p>Indication :</P>
+            <p>- Inlay/Onlay</P>
+            <p>Contra Indication</P>
+            <p>- Bruxism</P>
+      </font></div>
+</model-viewer>
+
+  </div>
+ </div>
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+	  
+  <div class="row">
+    <div class="column">
+          <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/pfn5.png" style="width:100%" onclick="currentSlide(1)" alt="PFM Bridges">
+    </div>
+    
+    <div class="column">
+      <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/zirconia 3.png" style="width:100%" onclick="currentSlide(2)" alt="Zirconia Bridges">
+    </div>
+    
+    <div class="column">
+	  <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax.png" style="width:100%" onclick="currentSlide(3)" alt="E-max Crown">
+    </div>
+    
+      <div class="column">
+       <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/maryland pfm3glb.png" style="width:100%" onclick="currentSlide(4)" alt="Maryland PFM">
+    </div>
+    
+    <div class="column">
+       <img class="thumb1" src="https://raw.githubusercontent.com/candwig/vr/master/produk/emax veneer with model.png" style="width:100%" onclick="currentSlide(5)" alt="E-max Veneer With Model">
+    </div>
+    
+    <div class="column">
+      <img class="demo cursor" src="https://raw.githubusercontent.com/candwig/vr/master/produk/INALY ZIRCONIA3.png " style="width:100%" onclick="currentSlide(6)" alt="Inlay Zirconia">
+    </div>
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("thumb1");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+
+
+</script>
+    
+</body>
+</html>

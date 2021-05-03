@@ -2,7 +2,6 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
 /* untuk hotspot annotation
 */
 	
@@ -284,16 +283,38 @@ img {
     --poster-color: transparent;
   }
   
+/* untuk circle
+*/  
+.circle {
+  height: 30px;
+  width: 30px;
+  background-color: #bbb;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(5px, 5px);
+}
+  
+ .font {
+  position: relative;
+  transform: translate(10px,10px);
+  left: 35%;
+ }
+ 
+ .untukcircle {
+  position: absolute;
+  right: 10%;
+ }
+ 
 </style>
+<head>
+<meta charset="UTF-8">
+<link rel='stylesheet' type='text/css' href='style.css'>
+  </head>
 <body>
 	
 
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>	
-<script>
-const ModelViewerElement = customElements.get('model-viewer');
-ModelViewerElement.dracoDecoderLocation = "https://www.gstatic.com/draco/versioned/decoders/1.4.1/draco_decoder.js";
-</script>
+
 	
 <h2 style="text-align:center">Asia Afrika Dental Product</h2>
 
@@ -302,7 +323,7 @@ ModelViewerElement.dracoDecoderLocation = "https://www.gstatic.com/draco/version
     <p id="caption"></p>
   <div class="mySlides">
     <div class="numbertext">1 / 6</div>
-    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/lepasan/kombinasi frame akrilik.glb" camera-controls camera-orbit="91.62deg 90.72deg 4.256m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.256m" shadow-intensity="0" poster="https://raw.githubusercontent.com/candwig/vr/master/lepasan/kombinasi frame akrilik.png">
+    <model-viewer class="sorotan" src="https://raw.githubusercontent.com/candwig/vr/master/lepasan/kombinasi frame akrilik.glb" camera-controls camera-orbit="91.62deg 90.72deg 4.256m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 4.256m" shadow-intensity="0" poster="/Lepasan/Poster/kombinasi frame akrilik.png">
 	    <div id="annotation"><font size="-1"><p><B>Indication :</B></P>
             <p>- Crown</P>
             <p>- Long Bridge</P>
@@ -311,6 +332,15 @@ ModelViewerElement.dracoDecoderLocation = "https://www.gstatic.com/draco/version
             <p>Contra Indication</P>
             <p>- Pasien Alergi Metal</P>
       </font></div>
+	  <div class="untukcircle" style="text-align: left;">
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/kombinasi frame akrilik/gigi.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b><l>Warna Gigi</b></div>
+  <br></br>
+  <br></br>
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/kombinasi frame akrilik/plat.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b>Warna Plat </b></div>
+  <br></br>
+  <br></br>
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/kombinasi frame akrilik/metal.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b>Warna Metal</b></div>
+</div>
 </model-viewer>
 
   </div>
@@ -325,6 +355,9 @@ ModelViewerElement.dracoDecoderLocation = "https://www.gstatic.com/draco/version
             <p>Contra Indication</P>
             <p>- Pasien Alergi Metal</P>
       </font></div>
+		<div class="untukcircle" style="text-align: left;">
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/frame/plat.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b>Warna Metal</b></div>
+</div>
 </model-viewer>
   </div>
 
@@ -340,6 +373,12 @@ ModelViewerElement.dracoDecoderLocation = "https://www.gstatic.com/draco/version
             <p>- Immediate Denture</P>
             <p>- Interocclusal Clearance 3 mm</P>
       </font></div>
+		<div class="untukcircle" style="text-align: left;">
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/frs lucitone/gigi.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b><l>Warna Gigi</b></div>
+  <br></br>
+  <br></br>
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/frs lucitone/plat.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b>Warna Plat </b></div>
+</div>
 </model-viewer>
   </div>
     
@@ -352,6 +391,12 @@ ModelViewerElement.dracoDecoderLocation = "https://www.gstatic.com/draco/version
             <p>Contra Indication</P>
             <p>- Pasien Alergi Metal</P>
       </font></div>
+		<div class="untukcircle" style="text-align: left;">
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/akrilik prothesa/gigi.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b><l>Warna Gigi</b></div>
+  <br></br>
+  <br></br>
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/kombinasi frame akrilik/plat.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b>Warna Plat </b></div>
+</div>
 </model-viewer>
   </div>
 
@@ -362,6 +407,15 @@ ModelViewerElement.dracoDecoderLocation = "https://www.gstatic.com/draco/version
             <p>- </P>
             <p>- </P>
 </font></div>
+	<div class="untukcircle" style="text-align: left;">
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/kombinasi akrilik clear claps/gigi.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b><l>Warna Gigi</b></div>
+  <br></br>
+  <br></br>
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/kombinasi akrilik clear claps/plat.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b>Warna Plat </b></div>
+  <br></br>
+  <br></br>
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/kombinasi akrilik clear claps/clear claps.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b>Warna Metal</b></div>
+</div>
 </model-viewer>
   </div>
     
@@ -373,6 +427,15 @@ ModelViewerElement.dracoDecoderLocation = "https://www.gstatic.com/draco/version
             <p>Contra Indication</P>
             <p>- </P>
       </font></div>
+		<div class="untukcircle" style="text-align: left;">
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/kombinasi akrilik clear plat/gigi.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b><l>Warna Gigi</b></div>
+  <br></br>
+  <br></br>
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/kombinasi akrilik clear plat/plat.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b>Warna Plat </b></div>
+  <br></br>
+  <br></br>
+  <div class="circle"><img src="https://raw.githubusercontent.com/candwig/vr/master/Asset/Icon/kombinasi akrilik clear plat/clear plat.png" alt="gigi" width="30" height="30"></div><div class="font" style="color:#4d4d4d;"><b>Warna Metal</b></div>
+</div>
 </model-viewer>
 
   </div>
@@ -407,6 +470,9 @@ ModelViewerElement.dracoDecoderLocation = "https://www.gstatic.com/draco/version
   </div>
 </div>
 
+<script src="kode.js"></script>
+    
+</body>
 <script>
 
 var slideIndex = 1;
